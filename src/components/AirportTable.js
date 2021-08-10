@@ -1,6 +1,8 @@
+import AirportRow from './AirportRow.js';
+
 import './AirportTable.css';
 
-const AirportTable = ({ data }) => {
+const AirportTable = ({ data, currentFlightStat }) => {
   return (
     <table>
       <thead>
@@ -18,10 +20,16 @@ const AirportTable = ({ data }) => {
           <th>Oct</th>
           <th>Nov</th>
           <th>Dec</th>
-          <th>Mean</th>
+          <th>{currentFlightStat === 'Total' ? 'Total' : 'Mean'}</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        {
+          data.map((airportStats, idx) => {
+            return <AirportRow key={idx} rowData={airportStats} />;
+          })
+        }
+      </tbody>
     </table>
   );
 };

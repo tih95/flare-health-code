@@ -4,4 +4,18 @@ table {
   width: 100%;
   border: 2px solid black;
   border-radius: 10px;
+  overflow-x: auto;
+}
+
+th {
+  padding: 0.4em;
+}
+
+td {
+  text-align: center;
+  padding: 0.4em;
+}
+
+td:first-child {
+  font-weight: bold;
 }

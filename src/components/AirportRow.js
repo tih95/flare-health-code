@@ -1,21 +1,11 @@
-const AirportRow = () => {
-  // To be rendered for each airport row and a td element is for that month
+const AirportRow = ({ rowData }) => {
   return (
     <tr>
-      <td>Airport</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      {
+        rowData.map((column, idx) => {
+          return <td key={idx}>{column}</td>;
+        })
+      }
     </tr>
   );
 };

@@ -1,15 +1,6 @@
+import { YEAR_OPTIONS, STAT_OPTIONS } from './constants';
+
 import './FilterOptions.css';
-
-const YEAR_OPTIONS = [
-  2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
-  2016
-];
-
-// Trying to figure out way to automatically change stat_options when selecting
-const STAT_OPTIONS = {
-  'number of flights': '',
-  '% of flights': ''
-};
 
 const FilterOptions = ({
   allAirportOptions,
@@ -38,7 +29,7 @@ const FilterOptions = ({
         >
           {Object.keys(STAT_OPTIONS).map((stat) => {
             return (
-              <option key={stat} value={stat}>
+              <option key={stat} value={STAT_OPTIONS[stat]}>
                 {stat}
               </option>
             );
@@ -50,7 +41,7 @@ const FilterOptions = ({
         <select
           id="year"
           value={currentYear}
-          onChange={(e) => setCurrentYear(e.target.value)}
+          onChange={(e) => setCurrentYear(parseInt(e.target.value))}
         >
           {YEAR_OPTIONS.map((year) => {
             return (
